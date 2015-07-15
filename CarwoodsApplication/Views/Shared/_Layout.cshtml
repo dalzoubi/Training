@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - CARWOODS Application</title>
+    <title>@ViewBag.Title - Carwoods</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <meta name="description" content="Carwoods - Alzoubi Motors LLC" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CARWOODS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Alzoubi Motors LLC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -27,6 +28,8 @@
                     <li>@Html.ActionLink("Makers", "Index", "Makers")</li>
                     <li>@Html.ActionLink("Options", "Index", "Options")</li>
                     <li>@Html.ActionLink("Automobiles", "Index", "Automobiles")</li>
+                    <li>@Html.ActionLink("Reviews", "Index", "Reviews")</li>
+                    <li>@Html.ActionLink("Countries", "Index", "Countries")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

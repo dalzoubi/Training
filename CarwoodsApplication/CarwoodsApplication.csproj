@@ -174,6 +174,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Automobile.cs" />
     <Compile Include="Models\CarwoodsApplicationContext.cs" />
+    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Maker.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

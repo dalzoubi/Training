@@ -13,7 +13,7 @@ namespace CarwoodsApplication.Controllers
         // GET: Options
         public ActionResult Index()
         {
-            return View(db.Options.ToList());
+            return View(db.Options.OrderBy(o => o.Name).ToList());
         }
 
         // GET: Options/Details/5

@@ -14,7 +14,7 @@ namespace CarwoodsApplication.Controllers
         public ActionResult Index()
         {
             var automobiles = db.Automobiles.Include(a => a.Maker);
-            return View(automobiles.ToList());
+            return View(automobiles.OrderBy(a => a.Model).ToList());
         }
 
         // GET: Automobiles/Details/5

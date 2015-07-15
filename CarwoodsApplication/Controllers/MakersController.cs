@@ -17,7 +17,7 @@ namespace CarwoodsApplication.Controllers
         // GET: Makers
         public ActionResult Index()
         {
-            return View(db.Makers.ToList());
+            return View(db.Makers.OrderBy(m => m.Title).ToList());
         }
 
         // GET: Makers/Details/5
@@ -38,6 +38,7 @@ namespace CarwoodsApplication.Controllers
         // GET: Makers/Create
         public ActionResult Create()
         {
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "Title");
             return View();
         }
 
@@ -55,6 +56,7 @@ namespace CarwoodsApplication.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "Title");
             return View(maker);
         }
 
@@ -70,6 +72,8 @@ namespace CarwoodsApplication.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "Title", maker.CountryId);
             return View(maker);
         }
 
@@ -86,6 +90,8 @@ namespace CarwoodsApplication.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "Title", maker.CountryId);
             return View(maker);
         }
 

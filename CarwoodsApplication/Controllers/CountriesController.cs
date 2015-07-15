@@ -13,7 +13,7 @@ namespace CarwoodsApplication.Controllers
         // GET: Countries
         public ActionResult Index()
         {
-            return View(db.Countries.ToList());
+            return View(db.Countries.OrderBy(c => c.Title).ToList());
         }
 
         // GET: Countries/Details/5

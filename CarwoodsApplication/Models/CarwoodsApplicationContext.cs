@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using CarwoodsApplication.Migrations;
 
 namespace CarwoodsApplication.Models
 {
@@ -10,10 +11,10 @@ namespace CarwoodsApplication.Models
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
+
         public CarwoodsApplicationContext() : base("name=CarwoodsApplicationContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<CarwoodsApplicationContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CarwoodsApplicationContext, Configuration>());
         }
 
         public DbSet<Maker> Makers { get; set; }

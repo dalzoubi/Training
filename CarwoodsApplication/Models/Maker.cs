@@ -7,19 +7,16 @@ namespace CarwoodsApplication.Models
         public int MakerId { get; set; }
 
         [Required]
+        [MaxLength(255)]
+        [Display(Name = "Maker")]
         public string Title { get; set; }
 
+        [MaxLength(5000)]
+        public string Description { get; set; }
+
+        [Required]
         public int CountryId { get; set; }
         
         public virtual Country Country { get; set; }
-    }
-
-    public class Country
-    {
-        public int CountryId { get; set; }
-
-        public string Title { get; set; }
-
-        public string CountryCode { get; set; }
     }
 }

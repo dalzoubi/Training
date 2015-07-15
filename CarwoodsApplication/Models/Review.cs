@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarwoodsApplication.Models
 {
@@ -11,17 +13,17 @@ namespace CarwoodsApplication.Models
 
         public virtual Automobile Automobile { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Enter Email Address")]
+        [MaxLength(255)]
+        [Required]
         [Display(Name = "Email Address", Order = 2)]
         [DataType(DataType.EmailAddress)]
         public string ReviewerEmail { get; set; }
 
+        [MaxLength(5000)]
         [Display(Name = "Comments", Order = 3)]
         [DataType(DataType.Html)]
         public string Contents { get; set; }
 
-        
-
-        
+        public DateTime ReviewDate { get; set; }
     }
 }
