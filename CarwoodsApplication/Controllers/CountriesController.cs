@@ -6,9 +6,29 @@ using CarwoodsApplication.Models;
 
 namespace CarwoodsApplication.Controllers
 {
+    [Authorize]
     public class CountriesController : Controller
     {
         private CarwoodsApplicationContext db = new CarwoodsApplicationContext();
+
+        // GET: Countries/DetailsByCountryCode/UK
+        [Route("Countries/DetailsByCountryCode/{countryCode}")]
+        public ActionResult DetailsByCountryCode(string countryCode)
+        {
+            if (string.IsNullOrWhiteSpace(countryCode))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Country country = db.Countries.FirstOrDefault(c => c.CountryCode.Equals(countryCode));
+
+            if (country == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(country);
+        }
 
         // GET: Countries
         public ActionResult Index()
@@ -23,11 +43,13 @@ namespace CarwoodsApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Country country = db.Countries.Find(id);
             if (country == null)
             {
                 return HttpNotFound();
             }
+
             return View(country);
         }
 
@@ -61,11 +83,13 @@ namespace CarwoodsApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Country country = db.Countries.Find(id);
             if (country == null)
             {
                 return HttpNotFound();
             }
+
             return View(country);
         }
 
@@ -82,6 +106,7 @@ namespace CarwoodsApplication.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(country);
         }
 
@@ -92,11 +117,13 @@ namespace CarwoodsApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Country country = db.Countries.Find(id);
             if (country == null)
             {
                 return HttpNotFound();
             }
+
             return View(country);
         }
 
@@ -117,6 +144,7 @@ namespace CarwoodsApplication.Controllers
             {
                 db.Dispose();
             }
+
             base.Dispose(disposing);
         }
     }

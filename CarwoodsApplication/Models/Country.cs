@@ -4,6 +4,7 @@ namespace CarwoodsApplication.Models
 {
     public class Country
     {
+        [Display(Name = "ID")]
         public int CountryId { get; set; }
 
         [Required]

@@ -5,6 +5,7 @@ namespace CarwoodsApplication.Models
 {
     public class Automobile
     {
+        [Display(Name = "ID")]
         public int AutomobileId { get; set; }
 
         [Required]
@@ -24,6 +25,7 @@ namespace CarwoodsApplication.Models
         
         public virtual List<Option> Options { get; set; }
 
+        [Display(Name = "Price")]
         [DataType(DataType.Currency)]
         public decimal MsrpPrice { get; set; }
 

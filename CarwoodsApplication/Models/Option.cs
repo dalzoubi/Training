@@ -4,6 +4,7 @@ namespace CarwoodsApplication.Models
 {
     public class Option
     {
+        [Display(Name = "ID")]
         public int OptionId { get; set; }
 
         [MaxLength(255)]

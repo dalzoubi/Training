@@ -4,6 +4,7 @@ namespace CarwoodsApplication.Models
 {
     public class Maker
     {
+        [Display(Name = "ID")]
         public int MakerId { get; set; }
 
         [Required]

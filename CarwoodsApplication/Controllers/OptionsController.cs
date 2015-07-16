@@ -6,6 +6,7 @@ using CarwoodsApplication.Models;
 
 namespace CarwoodsApplication.Controllers
 {
+    [Authorize]
     public class OptionsController : Controller
     {
         private CarwoodsApplicationContext db = new CarwoodsApplicationContext();

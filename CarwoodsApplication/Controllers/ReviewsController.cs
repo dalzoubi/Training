@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -6,6 +7,7 @@ using CarwoodsApplication.Models;
 
 namespace CarwoodsApplication.Controllers
 {
+    [Authorize]
     public class ReviewsController : Controller
     {
         private CarwoodsApplicationContext db = new CarwoodsApplicationContext();
@@ -53,6 +55,7 @@ namespace CarwoodsApplication.Controllers
                 return RedirectToAction("Index");
             }
 
+            review.ReviewDate = DateTime.Now;
             ViewBag.AutomobileId = new SelectList(db.Automobiles, "AutomobileId", "Model", review.AutomobileId);
             return View(review);
         }
@@ -83,6 +86,8 @@ namespace CarwoodsApplication.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(review).State = EntityState.Modified;
+
+                review.ReviewDate = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
